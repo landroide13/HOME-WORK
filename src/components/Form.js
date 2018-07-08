@@ -25,6 +25,8 @@ export default class Form extends Component {
     };
   }
 
+////////////////////////////////////////  
+
   //For later call The API.
 
   // componentDidMount(){
@@ -38,6 +40,7 @@ export default class Form extends Component {
   //   .then(words => this.setState({ words }))
   // }
 
+  /////////////////////////////////////
 
   wordsHandler = () =>{
     // console.log('Handler pressed..');
