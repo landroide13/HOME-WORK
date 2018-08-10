@@ -6,21 +6,7 @@ export default class Form extends Component {
   constructor(props){
     super(props);
     this.state = {
-      words: 
-        [
-          "A but tuba",
-          "A car, a man, a maraca",
-          "A dog has a plan, a canal: pagoda",
-          "A dog!A panic in a pagoda!",
-          "A lad named E.Mandala",
-          "A man is a man, a plan is a plan, a canal is in Panama",
-          "A new order began, a more Roman age bred Rowena",
-          "A nut",
-          "for a jar of tuna",
-          "A Santa at Nasa is Clause",
-          "A Santa dog lived as a devil God at NASA",
-          "A slut nixes sex in Tulsa"
-        ],
+      words: [],
       showWords: false 
     };
   }
@@ -29,16 +15,18 @@ export default class Form extends Component {
 
   //For later call The API.
 
-  // componentDidMount(){
-  //   this.fetchData();
-  // }
+  componentDidMount(){
+    this.fetchData();
+  }
 
-  // fetchData = () =>{
-  //   fetch('http://www.palindromelist.net/api')
-  //   .then(res => res.json)
-  //   .then(data => console.log(data))
-  //   .then(words => this.setState({ words }))
-  // }
+  fetchData = () => {
+    fetch('https://localhost:5001/api/palindrome1')
+      .then(res => res.json())
+      .then(data => data['palindrome'])
+      .then(words => this.setState({
+        words
+      }))
+  }
 
   /////////////////////////////////////
 
@@ -60,7 +48,7 @@ export default class Form extends Component {
       response = words.map(word =>{
         // console.log(word);
             return(
-              <ul className = "list-group">
+              <ul className = "list-group animated fadeIn">
                 <li><List word={ word } /></li>
               </ul>
             )
